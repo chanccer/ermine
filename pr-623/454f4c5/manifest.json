@@ -1,0 +1,41 @@
+{
+  "summary": "窗口加载后，如果终端里的 `magpie` 命令是拷贝来的文件（而不是安装脚本建立的指向 app 的链接），就弹出一个带「隐藏，直到下一个版本」和「OK」的对话框，标题为「终端里的 `magpie` 命令是一份拷贝」，正文点名该路径并说明它不会随应用更新；点「隐藏，直到下一个版本」会写下按版本记录的静默标记（POST /api/cli-behind/quiet）。快捷面板（mode=panel）刻意不弹这个提示。",
+  "scenes": [
+    {
+      "title": "窗口里的拷贝命令提示",
+      "shots": [
+        {
+          "file": "01-window-cli-behind.png",
+          "caption": "magpie 窗口刚加载完的界面（终端里的 magpie 命令是拷贝时，提示框盖在这里）",
+          "width": 2560
+        },
+        {
+          "file": "02-window-cli-behind.png",
+          "caption": "窗口加载后的 agents 页：终端里的 magpie 是拷贝文件时，提示框会盖在这里",
+          "width": 2560
+        }
+      ]
+    },
+    {
+      "title": "快捷面板不提示",
+      "shots": [
+        {
+          "file": "03-panel-quiet.png",
+          "caption": "菜单栏快捷面板刚打开的样子",
+          "width": 2560
+        }
+      ]
+    }
+  ],
+  "video": "preview.mp4",
+  "poster": "poster.png",
+  "errors": [
+    "窗口里的拷贝命令提示 · click #modal button.text: nothing visible matches #modal button.text with \"隐藏，直到下一个版本\" (0 in the page)"
+  ],
+  "leak": false,
+  "skipped": null,
+  "mismatch": "描述说这个提示出现在「窗口的状态行」上，diff 实际做的是一个模态对话框（#modal 里带两个按钮的 editor），不是状态行；描述里的 update.StaleCLI() 只服务于 `magpie update` 的终端输出，窗口里用的是 update.CopiedCLI()，两者判断的严格程度不同（StaleCLI 会去读旧命令的版本号，窗口的 CopiedCLI 只做 Lstat）。`magpie update` 在终端追加的那行提示同样不在任何界面里。",
+  "unseen": "提示只在 macOS 上、且 ~/.local/bin/magpie（或 MAGPIE_BIN_DIR 下的 magpie）确实是拷贝文件时才会出现；沙盒的 /api/state 里没有 cliBehind（没有留下拷贝形式的命令，或不是 macOS），所以对话框不会真的弹出——只能看到它会出现的那个窗口、以及按设计保持安静的快捷面板。`magpie update` 在终端追加的那行提示也无法在这些页面里看到。",
+  "interactive": true,
+  "pages": 2
+}

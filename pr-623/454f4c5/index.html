@@ -1,0 +1,14 @@
+<!doctype html><html lang="zh"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>#623 界面预览 · 454f4c5</title>
+<style>:root{color-scheme:light dark;--bg:#f6f6f7;--fg:#1d1d1f;--muted:#6e6e73;--card:#fff;--line:#e5e5ea}
+@media (prefers-color-scheme:dark){:root{--bg:#111113;--fg:#f2f2f4;--muted:#9a9aa0;--card:#1c1c1f;--line:#2c2c30}}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.6 -apple-system,"Segoe UI","PingFang SC","Noto Sans CJK SC",sans-serif}
+main{max-width:1100px;margin:0 auto;padding:28px 16px 60px}h1{font-size:20px;margin:0 0 4px}.m{color:var(--muted);font-size:13px;margin:0 0 20px}
+video,img{display:block;width:100%;border-radius:10px;border:1px solid var(--line);background:var(--card)}figure{margin:0 0 28px}figcaption{color:var(--muted);font-size:13px;margin-top:8px}
+a{color:inherit}</style>
+<main><h1>#623 界面预览</h1><p class="m">commit 454f4c5 · <a href="https://github.com/yetone/magpie/pull/623">回到 PR</a> · 窗口加载后，如果终端里的 `magpie` 命令是拷贝来的文件（而不是安装脚本建立的指向 app 的链接），就弹出一个带「隐藏，直到下一个版本」和「OK」的对话框，标题为「终端里的 `magpie` 命令是一份拷贝」，正文点名该路径并说明它不会随应用更新；点「隐藏，直到下一个版本」会写下按版本记录的静默标记（POST /api/cli-behind/quiet）。快捷面板（mode=panel）刻意不弹这个提示。</p>
+<figure><video src="preview.mp4" controls autoplay muted playsinline poster="poster.png"></video><figcaption>红线是鼠标走过的轨迹，红色圆环是一次点击；底部文字是这一步在做什么。空格暂停，← → 逐段查看。</figcaption></figure>
+<figure><img src="01-window-cli-behind.png" alt="magpie 窗口刚加载完的界面（终端里的 magpie 命令是拷贝时，提示框盖在这里）"><figcaption>窗口里的拷贝命令提示 · magpie 窗口刚加载完的界面（终端里的 magpie 命令是拷贝时，提示框盖在这里）</figcaption></figure>
+<figure><img src="02-window-cli-behind.png" alt="窗口加载后的 agents 页：终端里的 magpie 是拷贝文件时，提示框会盖在这里"><figcaption>窗口里的拷贝命令提示 · 窗口加载后的 agents 页：终端里的 magpie 是拷贝文件时，提示框会盖在这里</figcaption></figure>
+<figure><img src="03-panel-quiet.png" alt="菜单栏快捷面板刚打开的样子"><figcaption>快捷面板不提示 · 菜单栏快捷面板刚打开的样子</figcaption></figure>
+</main></html>
